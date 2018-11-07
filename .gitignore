@@ -1,3 +1,6 @@
+# folder containing data set
+# Available to download from: http://yann.lecun.com/exdb/mnist/
+data/
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
