@@ -1,6 +1,7 @@
 # Adapted from :
 # (1): https://www.youtube.com/watch?v=6xar6bxD80g
 # (2): https://github.com/ianmcloughlin/jupyter-teaching-notebooks/blob/master/mnist.ipynb
+# (3): https://medium.com/@mannasiladittya/converting-mnist-data-in-idx-format-to-python-numpy-array-5cb9126f99f1
 
 # Reading in compressed files
 import gzip
@@ -13,14 +14,17 @@ import os,codecs
 
 
 # https://docs.python.org/3/library/enum.html
+# enum for constants relating to MNIST data
 from enum import Enum
 class MNIST(Enum):
     IMAGES = 2051
     LABELS = 2049
     TRAIN = 'train'
     TEST = 'test'
+    TEST_SIZE = 10000
+    TRAIN_SIZE = 60000
 
-# PROVIDE YOUR DIRECTORY WITH THE EXTRACTED FILES HERE
+# provide your directory with the extracted files here
 datapath = './data/'
 
 files = os.listdir(datapath)
@@ -32,9 +36,9 @@ def byte_to_int(b):
 
 # The MNIST data set is in binary format and must be proessed as detailed inthe dataset's docs :http://yann.lecun.com/exdb/mnist/
 def process_mnist():
-    # get every file in the data directory
-
+    # handy structure to hold the data we want to parse
     data_dict = {}
+    # get every file in the data directory
     for file in files:
         print('Beginning rocessing on: ', file)
         # Unzip the .gz files
@@ -63,10 +67,10 @@ def process_mnist():
             parsed = np.frombuffer(file_content, dtype=np.uint8, offset=8)
             # reshape the array as number of samples
             parsed = parsed.reshape(length)
-        # separate test data from training data
-        if (length==10000):
+        # separate test data from training data - we know which is which from mnist doc detailing set size
+        if (length == MNIST.TEST_SIZE.value):
             set = 'test'
-        elif (length==60000):
+        elif (length==MNIST.TRAIN_SIZE.value):
             set = 'train'
         data_dict[set+'_'+category] = parsed  # Save the parsed data into a dict for convenience
         for key,value in data_dict.items():
@@ -80,27 +84,28 @@ def save_mnist_png(mnist_data):
 
     sets = ['train','test']
 
-    for set in sets:   # FOR TRAIN AND TEST SET
-        images = mnist_data[set+'_' + MNIST.IMAGES.name]   # IMAGES
-        labels = mnist_data[set+'_'+ MNIST.LABELS.name]   # LABELS
-        no_of_samples = images.shape[0]     # NUBMER OF SAMPLES
-        for indx in range (10):  # FOR EVERY SAMPLE
+    for set in sets:   # for train and test set
+        images = mnist_data[set+'_' + MNIST.IMAGES.name]
+        labels = mnist_data[set+'_'+ MNIST.LABELS.name]
+        # num of samples
+        no_of_samples = images.shape[0]
+         # for every sample
+        for indx in range (100): # using 100 as a test - change to num of samples
             print(set, indx)
-            image = Image.fromarray(images[indx])         # GET IMAGE
-            label = labels[indx]            # GET LABEL
-            if not os.path.exists(image_dir+set+'/'+str(label)+'/'):    # IF DIRECTORIES DO NOT EXIST THEN
-                os.makedirs (image_dir+set+'/'+str(label)+'/')       # CREATE TRAIN/TEST DIRECTORY AND CLASS SPECIFIC SUBDIRECTORY
-            filenumber = len(os.listdir(image_dir+set+'/'+str(label)+'/'))  # NUMBER OF FILES IN THE DIRECTORY FOR NAMING THE FILE
-            image.save(image_dir+set+'/'+str(label)+'/%05d.png'%(filenumber))  # SAVE THE IMAGE WITH PROPER NAME
-
-
-
-
-
+            # get image
+            image = Image.fromarray(images[indx])
+            # get label
+            label = labels[indx]
+              # if directories do not exist then
+            if not os.path.exists(image_dir+set+'/'+str(label)+'/'):
+                 # create train/test directory and class specific subdirectory
+                os.makedirs (image_dir+set+'/'+str(label)+'/')
+            filenumber = len(os.listdir(image_dir+set+'/'+str(label)+'/'))  # number of files in the directory for naming the file
+            # save the image with proper name
+            image.save(image_dir+set+'/'+str(label)+'/%05d.png'%(filenumber))
 
 
 data = process_mnist()
-
 save_mnist_png(data)
 
 #
