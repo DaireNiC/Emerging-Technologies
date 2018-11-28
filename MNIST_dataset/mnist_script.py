@@ -15,6 +15,7 @@ import os,codecs
 
 # https://docs.python.org/3/library/enum.html
 # enum for constants relating to MNIST data
+
 from enum import Enum
 class MNIST(Enum):
     IMAGES = 2051
@@ -107,9 +108,3 @@ def save_mnist_png(mnist_data):
 
 data = process_mnist()
 save_mnist_png(data)
-
-#
-# image = ~np.array(list(file_content[800: 1584])).reshape(28,28).astype(np.uint8)
-# im = Image.fromarray(image)
-# im.save("test_00001.png")
-# save each 784 bytes as a png image
