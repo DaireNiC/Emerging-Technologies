@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 # Author: Daire Ní  Chathain
 # Adapted from:
-#(1):  https://stackoverflow.com/questions/2498875/how-to-invert-colors-of-image-with-pil-python-imaging
-#(2): https://stackoverflow.com/questions/52146562/python-tkinter-paint-how-to-paint-smoothly-and-save-images-with-a-different
+# (1):  https://stackoverflow.com/questions/2498875/how-to-invert-colors-of-image-with-pil-python-imaging
+# (2): https://stackoverflow.com/questions/52146562/python-tkinter-paint-how-to-paint-smoothly-and-save-images-with-a-different
 
 from tkinter import *
 import PIL
