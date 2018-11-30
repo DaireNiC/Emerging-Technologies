@@ -5,7 +5,7 @@
 
 ## Emerging Technologies
 
-> This repos contains a collection of Jupyter notebooks and python
+> This repo contains a collection of Jupyter notebooks and python
 > scripts relating to emerging technologies in the field of computer and
 > data science.
 > 
@@ -14,10 +14,10 @@
 |--|--|--|
 |1  | [Numpy Random Notebook](https://github.com/DaireNiC/Emerging-Techologies/blob/master/numpy_random.ipynb) | Exploring probability distributions & numpy.rand package
 |2 | [Iris Dataset Notebook](https://github.com/DaireNiC/Emerging-Techologies/blob/master/iris_dastaset.ipynb) | Researching and visualizing the Iris dataset with Pandas, Keras & more
-|3| [MNIST Dataset Notebook](https://github.com/DaireNiC/Emerging-Techologies/blob/master/MNIST_dataset/MNIST.ipynb) | How to read and interpret the MNIST dataset
-|5 |[ MNSIT Dataset Reader Python Script](https://github.com/DaireNiC/Emerging-Techologies/blob/master/MNIST_dataset/mnist_script.py) | Python implementation of reading and storing the MNIST dataset
-|4 | [Digit recognizer Notebook](https://github.com/DaireNiC/Emerging-Techologies/blob/master/MNIST_dataset/digit_recognition.ipynb) | Building Neural Networks to recognize hand drawn digits
-|5 |[ Digit recognizer Notebook Python Script](https://github.com/DaireNiC/Emerging-Techologies/blob/master/MNIST_dataset/digitrec.py) | Command Line tool that takes an image file containing a handwritten digit and identifies the digit using a supervisedlearning algorithm and the MNIST dataset
+|3| [MNIST Dataset Notebook](https://github.com/DaireNiC/Emerging-Techologies/blob/master/MNIST.ipynb) | How to read and interpret the MNIST dataset
+|5 |[ MNSIT Dataset Reader Python Script](https://github.com/DaireNiC/Emerging-Techologies/blob/master/mnist_script.py) | Python implementation of reading and storing the MNIST dataset
+|4 | [Digit Recognizer Notebook](https://github.com/DaireNiC/Emerging-Techologies/blob/master/digit_recognition.ipynb) | Building Neural Networks to recognize hand drawn digits
+|5 |[Digit Recognizer Python Script](https://github.com/DaireNiC/Emerging-Techologies/blob/master/digit_recognizer/digit_recognition_script.py) | Command Line tool that takes an image file containing a handwritten digit and identifies the digit using a supervisedlearning algorithm and the MNIST dataset
 
 
 ## Using Jupyter Notebooks
@@ -73,4 +73,4 @@ Notebook Explanations & Presentation
 - I also added some of my own hand drawn sketches, photoshop creations and carefully selected gifs to help clarify some of the tools and ideas discussed in the notebooks. 
 
 Trial & Error
-- I tried various approaches to each of the tasks required. This is evident in how I discuss using different ML algorithims, testing to see which yields the best accuracy - and prodding at why that might be. Also shown in my approach to using data vis libraries such a matplot and seaborn wherever possible to get a better understanding of the each concept.
+- I tried various approaches to each of the tasks required. This is evident in how I discuss using different ML algorithms, testing to see which yields the best accuracy - and prodding at why that might be. Also shown in my approach to using data vis libraries such a matplot and seaborn wherever possible to get a better understanding of the each concept.
