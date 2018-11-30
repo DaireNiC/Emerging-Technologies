@@ -7,6 +7,7 @@
 # Import keras.
 import keras as kr
 import os
+import argparse
 # import numpy
 import numpy as np
 from keras.datasets import mnist # No need to re-invent the wheel
@@ -60,12 +61,13 @@ def build_neural_net(MNIST_data):
     print('Test accuracy:', score[1])
     return model
 
-def predict_img():
+def predict_img(input_img):
     # Returns a compiled model
     model = load_model(MODEL_NAME)
     print('classifying digit ...')
     # parsing the image to meet model input structure
-    img = np.invert(Image.open("test_img.png")).reshape(1,784)
+    #img = np.invert(Image.open("test_img.png")).reshape(1,784)
+    img = np.invert(Image.open(input_img)).reshape(1,784)
     # get the corresponding categorical value from the hot encoded array
     # changes from binary array --> gets max (where the position of the 1 is)
     print("Predicted: " + np.argmax(model.predict(img), axis=None, out=None).astype(str) )
@@ -76,12 +78,35 @@ def save_model(model):
     model.save(MODEL_NAME)
     print('Saved trained model as %s ' + MODEL_NAME)
 
+def get_img(x):
+    """
+    'Type' for argparse - checks that file exists but does not open.
+    """
+    if not os.path.exists(x):
+        # Argparse uses the ArgumentTypeError to give a rejection message like:
+        # error: argument input: x does not exist
+        raise argparse.ArgumentTypeError("{0} does not exist".format(x))
+    return x
+
 if __name__ == '__main__':
+    # parser = argparse.ArgumentParser()
+    # parser.add_argument("--action", type=str, default="predict" )
+    # FLAGS, unparsed = parser.parse_known_args()
+    # if FLAGS.action == "predict":
+    #     predict(x)
+    # if FLAGS.action == "train":
+    #     train(x, y)
+
+    parser = argparse.ArgumentParser(description="digit recogniser")
+    parser.add_argument("-i", "--input",
+        dest="filename", required=True, type=get_img,
+        help="input image file", metavar="FILE")
+    args = parser.parse_args()
 
     # if model exists already don't create a new one
     if (os.path.isfile(MODEL_NAME)):
         print('model exists')
-        predict_img()
+        predict_img(args.filename)
     # otherwise, create model and then classify
     else:
         print('No model found, creating model and then classifying')
