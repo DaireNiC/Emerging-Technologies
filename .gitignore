@@ -1,6 +1,7 @@
 # folder containing data set
 # Available to download from: http://yann.lecun.com/exdb/mnist/
 mnist_images/
+digit_recognizer/data
 data/
 # Byte-compiled / optimized / DLL files
 __pycache__/
