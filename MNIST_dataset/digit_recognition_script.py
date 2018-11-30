@@ -11,11 +11,12 @@ import os
 import numpy as np
 from keras.datasets import mnist # No need to re-invent the wheel
 from keras.utils import np_utils
+from keras.models import load_model
 
+from PIL import Image
 # constants
 NUM_CLASSES = 10 # represents 0-9 digits
 # where the model should be stored
-PATH = "/keras_mnist_model/"
 MODEL_NAME = 'keras_mnist.h5'
 
 """
@@ -59,18 +60,28 @@ def build_neural_net(MNIST_data):
     print('Test accuracy:', score[1])
     return model
 
+def predict_img():
+    # Returns a compiled model
+    model = load_model(MODEL_NAME)
+    print('classifying digit ...')
+    # parsing the image to meet model input structure
+    img = np.invert(Image.open("test_img.png")).reshape(1,784)
+    # get the corresponding categorical value from the hot encoded array
+    # changes from binary array --> gets max (where the position of the 1 is)
+    print("Predicted: " + np.argmax(model.predict(img), axis=None, out=None).astype(str) )
+
 def save_model(model):
-    # saving the model
-    os.mkdir(PATH, 0o755)
-    model_path = os.path.join(PATH, MODEL_NAME)
+    # saving the model)
+    model_path = os.path.join(MODEL_NAME)
     model.save(MODEL_NAME)
-    print('Saved trained model at %s ' % PATH + MODEL_NAME)
+    print('Saved trained model as %s ' + MODEL_NAME)
 
 if __name__ == '__main__':
 
     # if model exists already don't create a new one
-    if (os.path.isfile(PATH + MODEL_NAME)):
+    if (os.path.isfile(MODEL_NAME)):
         print('model exists')
+        predict_img()
     # otherwise, create model and then classify
     else:
         print('No model found, creating model and then classifying')
