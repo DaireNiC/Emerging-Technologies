@@ -1,6 +1,7 @@
 
 
 
+
 <img src="https://raw.githubusercontent.com/DaireNiC/Emerging-Techologies/master/media/emerging_tech.gif?token=ATSi0EMXwwN1uEVUuDSDRU23EBbcYBetks5cCtJDwA%3D%3D" width="100%"/>
 
 ## Emerging Technologies
@@ -50,6 +51,10 @@ With Juypter successfully installed , you can now download and run .ipynb files.
 #### Things that I dedicated a little extra time to thoughout the development of this project
 
 Command Line Tool
+##### How to use:
+`cd digit_recognizer`
+ `python digit_recognizer.py -i test_img.png`	
+
 - The command line tool for the digit recogniser uses the argparse python library
 - I added the option to  allow the user to enter an image via the command line 
 - Also attempted to add an option to draw your own digit
