@@ -59,7 +59,7 @@ def build_neural_net(MNIST_data):
     # Build the graph.
     model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
     # train the neural net
-    model.fit(X_train, Y_train,batch_size=120, epochs=1,verbose=2,validation_data=(X_test, Y_test))
+    model.fit(X_train, Y_train,batch_size=120, epochs=100,verbose=2,validation_data=(X_test, Y_test))
     # evaluate score and print
     score = model.evaluate(X_test, Y_test, verbose=1)
     print(type(score[1]))
@@ -116,7 +116,7 @@ if __name__ == '__main__':
 
     group = parser.add_mutually_exclusive_group(required=True)
     group.add_argument("-i", "--image", action="store", help="Path to image you wish to classify", dest='image')
-    group.add_argument("-d", "--draw", action="store_true", help="Draw an a digit for recognition")
+    group.add_argument("-d", "--draw", action="store_true", help="[Experimental!] Draw an a digit for recognition")
 
     args = parser.parse_args()
     if args is None:
