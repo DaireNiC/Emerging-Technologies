@@ -2,7 +2,7 @@
 
 
 
-<img src="https://raw.githubusercontent.com/DaireNiC/Emerging-Techologies/master/media/emerging_tech.gif?token=ATSi0EMXwwN1uEVUuDSDRU23EBbcYBetks5cCtJDwA%3D%3D" width="100%"/>
+<img src="https://raw.githubusercontent.com/DaireNiC/Emerging-Technologies/master/media/emerging_tech.gif?token=ATSi0EMXwwN1uEVUuDSDRU23EBbcYBetks5cCtJDwA%3D%3D" width="100%"/>
 
 ## Emerging Technologies
 
