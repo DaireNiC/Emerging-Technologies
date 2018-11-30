@@ -52,16 +52,24 @@ With Juypter successfully installed , you can now download and run .ipynb files.
 Command Line Tool
 - The command line tool for the digit recogniser uses the argparse python library
 - I added the option to  allow the user to enter an image via the command line 
-- Also added option to draw your own digit
+- Also attempted to add an option to draw your own digit
 	- Used the Python libraries [Pillow]() & [Tkinter](https://wiki.python.org/moin/TkInter) to process user input
-- Well structured code
-	- I made use of the Black linter to ensure my python code conforms to Pep8 standards
+	- Parsing and formatting works, however classification must be tweaked
+- Package Distribution
+	- Attempt made at creating a python distribution, see branch for details
+
+Sources
+- For each topic, I searched  articles, journals, websites, youtube videos and stackoverflow
+- All resources are cited and credit is given to code I've adapted from others. 
 
  Consistent Work
 - Evident in git history, added to the project at each and every week.
 
+- Well structured code
+	- I made use of the Black linter to ensure my python code conforms to Pep8 standards
+
 Notebook Explanations & Presentation
-- I tried to have fun creating and writing the Jupyter Notebooks in this project. Explanations are in simple terms and aim to be succinct at all times. Hopefully they may someday help another developer begin to get a handle on some of the concepts I've explored as part of this module.  
+- I tried to have fun creating and writing the Jupyter Notebooks in this project. Explanations are in simple terms and aim to be succinct at all times. Who knows, they may someday help another developer begin to get a handle on some of the concepts I've explored as part of this module.  
 - I also added some of my own hand drawn sketches, photoshop creations and carefully selected gifs to help clarify some of the tools and ideas discussed in the notebooks. 
 
 Trial & Error
